@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trading.x10 | روابط القناة</title>
+    <title>trading.x10 | مركز التداول والتحليل</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -14,55 +14,95 @@
         }
 
         body {
-            background-color: #0d1117;
+            background-color: #0b0e14;
+            background-image: radial-gradient(#1f2937 1px, transparent 1px);
+            background-size: 24px 24px;
             color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 20px 10px;
         }
 
         .container {
             width: 100%;
-            max-width: 480px;
+            max-width: 500px;
             text-align: center;
         }
 
-        .profile-img {
-            width: 90px;
-            height: 90px;
+        .logo-box {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #161b22, #00e67622);
             border-radius: 50%;
-            border: 3px solid #00e676;
-            margin-bottom: 15px;
-            object-fit: cover;
+            border: 2px solid #00e676;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px auto;
+            box-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
+        }
+
+        .logo-box i {
+            font-size: 2.2rem;
+            color: #00e676;
         }
 
         h1 {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 6px;
+            letter-spacing: 1px;
         }
 
         .tagline {
             font-size: 0.9rem;
+            color: #00e676;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        /* تنسيق الشارت المباشر */
+        .chart-container {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
             color: #8b949e;
-            margin-bottom: 25px;
+            margin-bottom: 8px;
+            padding: 0 5px;
+        }
+
+        .chart-header span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #00e676;
         }
 
         .links-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .link-card {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: #161b22;
+            background: linear-gradient(90deg, #161b22, #1c2128);
             border: 1px solid #30363d;
-            padding: 14px 20px;
+            padding: 14px 18px;
             border-radius: 12px;
             color: #ffffff;
             text-decoration: none;
@@ -73,8 +113,7 @@
         .link-card:hover {
             border-color: #00e676;
             transform: translateY(-2px);
-            background-color: #1c2128;
-            box-shadow: 0 4px 12px rgba(0, 230, 118, 0.15);
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.2);
         }
 
         .link-content {
@@ -95,10 +134,10 @@
         }
 
         .disclaimer {
-            margin-top: 30px;
-            font-size: 0.75rem;
-            color: #484f58;
-            line-height: 1.4;
+            margin-top: 25px;
+            font-size: 0.72rem;
+            color: #6e7681;
+            line-height: 1.5;
             padding: 10px;
             border-top: 1px solid #21262d;
         }
@@ -107,12 +146,27 @@
 <body>
 
     <div class="container">
-        <!-- صورة الحساب -->
-        <img src="https://via.placeholder.com/90" alt="trading.x10" class="profile-img">
+        <!-- أيقونة الشعار الحرفية لـ trading.x10 -->
+        <div class="logo-box">
+            <i class="fas fa-chart-candlestick"></i>
+        </div>
         
         <!-- الاسم والوصف -->
         <h1>trading.x10</h1>
-        <p class="tagline">تحليل الأسواق المالية | توصيات وإشارات تداول</p>
+        <p class="tagline"><i class="fas fa-bolt"></i> التحليل الفني وإشارات الأسواق المالية</p>
+
+        <!-- الشارت المباشر من TradingView -->
+        <div class="chart-container">
+            <div class="chart-header">
+                <span><i class="fas fa-circle" style="font-size: 8px;"></i> مباشر: الذهب XAUUSD</span>
+                <small>TradingView Chart</small>
+            </div>
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container" style="height:220px;width:100%;">
+              <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_1&symbol=OANDA%3AXAUUSD&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
 
         <!-- قائمة الروابط -->
         <div class="links-container">
@@ -141,7 +195,7 @@
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <a href="https://t.me/YOUR_SUPPORT_LINK" target="_blank" class="link-card">
+            <a href="https://t.me/@Tradinglivex10" target="_blank" class="link-card">
                 <div class="link-content">
                     <i class="fas fa-headset"></i>
                     <span>التواصل المباشر / الدعم</span>
@@ -153,10 +207,9 @@
 
         <!-- إخلاء المسؤولية -->
         <div class="disclaimer">
-            تنبيه: التداول في الأسواق المالية ينطوي على مخاطر عالية وقد لا يكون مناسباً لجميع المستثمرين. المحتوى المالي المقدم هو لأغراض تعليمية فقط وليس نصيحة استثمارية.
+            تنبيه المخاطر: التداول في الأسواق المالية ينطوي على مخاطر عالية. جميع ما يقتصر عرضه في الصفحة والقناة هو لأغراض تعليمية وتحليلية فقط.
         </div>
     </div>
 
 </body>
 </html>
-
