@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>trading.x10 | مركز التداول والتحليل</title>
+    <title>trading.x10 | لوحة التحليل والأخبار</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -19,75 +19,139 @@
             background-size: 24px 24px;
             color: #ffffff;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            padding: 20px 10px;
+            padding-bottom: 30px;
+        }
+
+        .ticker-container {
+            width: 100%;
+            background-color: #161b22;
+            border-bottom: 1px solid #30363d;
+            margin-bottom: 20px;
         }
 
         .container {
             width: 100%;
             max-width: 500px;
             text-align: center;
+            padding: 0 15px;
         }
 
         .logo-box {
-            width: 80px;
-            height: 80px;
+            width: 75px;
+            height: 75px;
             background: linear-gradient(135deg, #161b22, #00e67622);
             border-radius: 50%;
             border: 2px solid #00e676;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px auto;
+            margin: 0 auto 12px auto;
             box-shadow: 0 0 20px rgba(0, 230, 118, 0.2);
         }
 
         .logo-box i {
-            font-size: 2.2rem;
+            font-size: 2rem;
             color: #00e676;
         }
 
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             color: #ffffff;
-            margin-bottom: 6px;
-            letter-spacing: 1px;
+            margin-bottom: 4px;
         }
 
         .tagline {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #00e676;
             margin-bottom: 20px;
             font-weight: 500;
         }
 
-        /* تنسيق الشارت المباشر */
-        .chart-container {
+        .card-box {
             background: #161b22;
             border: 1px solid #30363d;
             border-radius: 12px;
-            padding: 10px;
+            padding: 15px;
             margin-bottom: 20px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: right;
         }
 
-        .chart-header {
+        .card-title {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-size: 0.8rem;
-            color: #8b949e;
-            margin-bottom: 8px;
-            padding: 0 5px;
+            font-size: 0.9rem;
+            color: #00e676;
+            margin-bottom: 12px;
+            border-bottom: 1px solid #21262d;
+            padding-bottom: 8px;
         }
 
-        .chart-header span {
+        .calc-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .input-group {
             display: flex;
-            align-items: center;
+            flex-direction: column;
             gap: 5px;
+        }
+
+        .input-group label {
+            font-size: 0.75rem;
+            color: #8b949e;
+        }
+
+        .input-group input {
+            background: #0d1117;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            padding: 8px;
+            color: #fff;
+            font-size: 0.85rem;
+            outline: none;
+        }
+
+        .input-group input:focus {
+            border-color: #00e676;
+        }
+
+        .calc-btn {
+            width: 100%;
+            background: #00e676;
+            color: #0d1117;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .calc-btn:hover {
+            background: #00c853;
+        }
+
+        .result-box {
+            margin-top: 10px;
+            padding: 10px;
+            background: #0d1117;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            color: #c9d1d9;
+            text-align: center;
+        }
+
+        .result-box span {
             color: #00e676;
+            font-weight: bold;
         }
 
         .links-container {
@@ -128,11 +192,6 @@
             width: 24px;
         }
 
-        .arrow {
-            color: #8b949e;
-            font-size: 0.8rem;
-        }
-
         .disclaimer {
             margin-top: 25px;
             font-size: 0.72rem;
@@ -145,32 +204,85 @@
 </head>
 <body>
 
+    <!-- شريط الأسعار المباشر -->
+    <div class="ticker-container">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+          {
+          "symbols": [
+            {"proName": "FOREXCOM:SPXUSD", "title": "S&P 500 Index"},
+            {"proName": "FX_IDC:EURUSD", "title": "EUR to USD"},
+            {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+            {"proName": "OANDA:XAUUSD", "title": "Gold"}
+          ],
+          "showSymbolLogo": true,
+          "isTransparent": true,
+          "displayMode": "adaptive",
+          "colorTheme": "dark",
+          "locale": "ar"
+        }
+          </script>
+        </div>
+    </div>
+
     <div class="container">
-        <!-- أيقونة الشعار الحرفية لـ trading.x10 -->
         <div class="logo-box">
-            <i class="fas fa-chart-candlestick"></i>
+            <i class="fas fa-chart-line"></i>
         </div>
         
-        <!-- الاسم والوصف -->
         <h1>trading.x10</h1>
-        <p class="tagline"><i class="fas fa-bolt"></i> التحليل الفني وإشارات الأسواق المالية</p>
+        <p class="tagline"><i class="fas fa-bolt"></i> مركز التحليل والبيانات المباشرة</p>
 
-        <!-- الشارت المباشر من TradingView -->
-        <div class="chart-container">
-            <div class="chart-header">
+        <!-- الشارت المباشر -->
+        <div class="card-box" style="padding: 10px;">
+            <div class="card-title" style="padding: 0 5px 8px 5px;">
                 <span><i class="fas fa-circle" style="font-size: 8px;"></i> مباشر: الذهب XAUUSD</span>
-                <small>TradingView Chart</small>
+                <small>TradingView</small>
             </div>
-            <!-- TradingView Widget BEGIN -->
-            <div class="tradingview-widget-container" style="height:220px;width:100%;">
-              <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_1&symbol=OANDA%3AXAUUSD&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=1&timezone=Etc%2FUTC&studies_overrides=%7B%7D&overrides=%7B%7D&enabled_features=%5B%5D&disabled_features=%5B%5D&locale=en" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
+            <div class="tradingview-widget-container" style="height:230px;width:100%;">
+              <iframe src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_1&symbol=OANDA%3AXAUUSD&interval=D&hidesidetoolbar=1&symboledit=1&saveimage=1&toolbarbg=f1f3f6&studies=%5B%5D&theme=dark&style=1&timezone=Etc%2FUTC&locale=ar" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
             </div>
-            <!-- TradingView Widget END -->
+        </div>
+
+        <!-- الأجندة الاقتصادية والأخبار المباشرة الآلية -->
+        <div class="card-box" style="padding: 10px;">
+            <div class="card-title" style="padding: 0 5px 8px 5px;">
+                <span><i class="fas fa-newspaper"></i> المفكرة الاقتصادية المباشرة</span>
+                <small>محدث تلقائياً</small>
+            </div>
+            <div class="tradingview-widget-container" style="height:320px; width:100%;">
+              <iframe src="https://s.tradingview.com/embed-widget/events/?locale=ar#%7B%22colorTheme%22%3A%22dark%22%2C%22isTransparent%22%3Atrue%2C%22width%22%3A%22100%25%22%2C%22height%22%3A%22100%25%22%2C%22importanceFilter%22%3A%220%2C1%22%7D" style="width: 100%; height: 100%; border: none; border-radius: 8px;"></iframe>
+            </div>
+        </div>
+
+        <!-- حاسبة حجم الصفقة -->
+        <div class="card-box">
+            <div class="card-title">
+                <span><i class="fas fa-calculator"></i> حاسبة إدارة المخاطرة (Lot Size)</span>
+            </div>
+            <div class="calc-grid">
+                <div class="input-group">
+                    <label>رأس المال ($)</label>
+                    <input type="number" id="balance" value="1000">
+                </div>
+                <div class="input-group">
+                    <label>نسبة المخاطرة (%)</label>
+                    <input type="number" id="risk" value="1">
+                </div>
+                <div class="input-group" style="grid-column: span 2;">
+                    <label>وقف الخسارة (نقاط / Pips)</label>
+                    <input type="number" id="stoploss" value="30">
+                </div>
+            </div>
+            <button class="calc-btn" onclick="calculateLot()">احسب اللوت المناسب</button>
+            <div class="result-box" id="calc-result">
+                المخاطرة: <span>$10</span> | اللوت المقترح: <span>0.03 Lot</span>
+            </div>
         </div>
 
         <!-- قائمة الروابط -->
         <div class="links-container">
-            
             <a href="https://t.me/YOUR_TELEGRAM_LINK" target="_blank" class="link-card">
                 <div class="link-content">
                     <i class="fab fa-telegram"></i>
@@ -181,35 +293,38 @@
 
             <a href="https://www.tradingview.com/" target="_blank" class="link-card">
                 <div class="link-content">
-                    <i class="fas fa-chart-line"></i>
+                    <i class="fas fa-chart-pie"></i>
                     <span>حساب TradingView</span>
                 </div>
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
 
-            <a href="https://YOUR_BROKER_LINK.com" target="_blank" class="link-card">
-                <div class="link-content">
-                    <i class="fas fa-wallet"></i>
-                    <span>منصة التداول الموصى بها</span>
-                </div>
-                <i class="fas fa-chevron-left arrow"></i>
-            </a>
-
-            <a href="https://t.me/@Tradinglivex10" target="_blank" class="link-card">
+            <a href="https://t.me/YOUR_SUPPORT_LINK" target="_blank" class="link-card">
                 <div class="link-content">
                     <i class="fas fa-headset"></i>
                     <span>التواصل المباشر / الدعم</span>
                 </div>
                 <i class="fas fa-chevron-left arrow"></i>
             </a>
-
         </div>
 
-        <!-- إخلاء المسؤولية -->
         <div class="disclaimer">
-            تنبيه المخاطر: التداول في الأسواق المالية ينطوي على مخاطر عالية. جميع ما يقتصر عرضه في الصفحة والقناة هو لأغراض تعليمية وتحليلية فقط.
+            تنبيه المخاطر: التداول ينطوي على مخاطر عالية. المفكرة والأدوات المرفقة تقدم تقديرات تعليمية وتحليلية فقط.
         </div>
     </div>
 
+    <script>
+        function calculateLot() {
+            const balance = parseFloat(document.getElementById('balance').value) || 0;
+            const risk = parseFloat(document.getElementById('risk').value) || 0;
+            const stoploss = parseFloat(document.getElementById('stoploss').value) || 1;
+
+            const riskAmount = (balance * (risk / 100));
+            const lotSize = (riskAmount / (stoploss * 10)).toFixed(2);
+
+            document.getElementById('calc-result').innerHTML = 
+                `المخاطرة: <span>$${riskAmount.toFixed(1)}</span> | اللوت المقترح: <span>${lotSize > 0 ? lotSize : 0.01} Lot</span>`;
+        }
+    </script>
 </body>
 </html>
